@@ -5,5 +5,5 @@ using namespace std;
 
 string hangMan(){
     // Return string "HangMan Game."
-    return "";
+    return "HangMan Game.";
 }
