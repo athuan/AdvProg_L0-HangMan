@@ -11,6 +11,9 @@
 using std::string;
 using std::vector;
 
+void updateEnteredChars(const char ch, string& correctChars);
+void updateIncorrectGuess(int& incorrectGuess);
+
 string chooseWordFromList(const vector<string>& wordList, int index);
 string generateHiddenCharacters(string word);
 char getInputCharacter();

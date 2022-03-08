@@ -77,13 +77,23 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
     }
 }
 
-// Function 5: processData
+// Function 5 + 6 +7: processData
 // If ch in word:
 //     update secretWord
 //     update correctChars
 // Else:
 //     update incorrectGuess
 //     incorrectChars
+
+void updateEnteredChars(const char ch, string& chars){
+    chars += ch;
+    chars += " ";
+}
+
+void updateIncorrectGuess(int& incorrectGuess){
+    incorrectGuess += 1;
+}
+
 void processData(const char ch, const string& word, 
                 string& secretWord, 
                 string& correctChars, 
@@ -91,14 +101,14 @@ void processData(const char ch, const string& word,
 {
     if (isCharInWord(ch, word)) {
         updateSecretWord(secretWord, ch, word);
-        correctChars +=  ch; correctChars += " "; 
+        updateEnteredChars(ch, correctChars);
     } else {
-        incorrectGuess += 1;
-        incorrectChars += ch; incorrectChars += " ";
+        updateIncorrectGuess(incorrectGuess);
+        updateEnteredChars(ch, incorrectChars);
     }
 }
 
-// Function 6: Based on secretWord's length, generate hidden characters in form of "---"
+// Function 8: Based on secretWord's length, generate hidden characters in form of "---"
 string generateHiddenCharacters(string secretWord){
     string hiddenCharacters(secretWord.length(), '-');
     return hiddenCharacters;
