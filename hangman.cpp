@@ -83,17 +83,20 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 //     update correctChars
 // Else:
 //     update incorrectGuess
-//     incorrectChars
+//     update incorrectChars
 
+// Function 5: this function is used to update correctChars and incorrectChars
 void updateEnteredChars(const char ch, string& chars){
     chars += ch;
     chars += " ";
 }
 
+// Function 6: Update incorrectGuess
 void updateIncorrectGuess(int& incorrectGuess){
     incorrectGuess += 1;
 }
 
+// Function 7: processData
 void processData(const char ch, const string& word, 
                 string& secretWord, 
                 string& correctChars, 
