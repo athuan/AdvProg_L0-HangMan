@@ -19,6 +19,7 @@ vector<string> readWordListFromFile(const string& filePath)
     vector<string> wordList;
     string word;
     ifstream wordFile (filePath);
+    
     if (!wordFile.is_open()) {
         throw domain_error("Unable to open file");
     }
