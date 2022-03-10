@@ -91,7 +91,7 @@ void updateEnteredChars(const char ch, string& chars){
 }
 
 void updateIncorrectGuess(int& incorrectGuess){
-    incorrectGuess += 2;
+    incorrectGuess += 1;
 }
 
 void processData(const char ch, const string& word, 
