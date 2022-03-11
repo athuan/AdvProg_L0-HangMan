@@ -11,7 +11,7 @@ using std::cin;
 int generateRandomNumber(const int min, const int max)
 {
     //srand((int)time(0)); // It is a bug if putting this line here.
-    // Your code here
+    return rand() % (max - min + 1) + min;
 }
 
 vector<string> readWordListFromFile(const string& filePath)
@@ -38,13 +38,26 @@ vector<string> readWordListFromFile(const string& filePath)
 // Function 2: Check if a character is in a string or not.
 bool isCharInWord(const char ch, const string& word)
 {
-    // Your code here
+  return (word.find_first_of(ch) != string::npos);
+    /*
+    int len = word.length();
+    for (int i = 0; i < len; ++i) {
+        if (word[i] == ch) {
+            return true;
+        }
+    }
+    return false;
+    */
 }
 
 // Function 3: Return a lowercase word in a certain position of a list.
 string chooseWordFromList(const vector<string>& wordList, int index) 
 {
-    // Your code here
+    if (wordList.empty()) return "";
+
+    string word = wordList[index];
+    transform(word.begin(), word.end(), word.begin(), ::tolower);
+    return word;
 }
 
 char getInputCharacter() {
@@ -56,7 +69,12 @@ char getInputCharacter() {
 // Function 4: Update the secret word if the character ch is in the answer word.
 void updateSecretWord(string& secretWord, const char ch, const string& word)
 {
-    // Your code here
+    int len = word.length();
+    for (int i = 0; i < len; ++i) {
+        if (word[i] == ch) {
+            secretWord[i] = ch;
+        }
+    }
 }
 
 // Function 5 + 6 +7: processData
@@ -69,12 +87,13 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 
 // Function 5: this function is used to update correctChars and incorrectChars
 void updateEnteredChars(const char ch, string& chars){
-    // Your code here
+    chars += ch;
+    chars += " ";
 }
 
 // Function 6: Update incorrectGuess
 void updateIncorrectGuess(int& incorrectGuess){
-    // Your code here
+    incorrectGuess += 1;
 }
 
 // Function 7: processData
@@ -83,10 +102,17 @@ void processData(const char ch, const string& word,
                 string& correctChars, 
                 int& incorrectGuess, string& incorrectChars)
 {
-    // Your code here
+    if (isCharInWord(ch, word)) {
+        updateSecretWord(secretWord, ch, word);
+        updateEnteredChars(ch, correctChars);
+    } else {
+        updateIncorrectGuess(incorrectGuess);
+        updateEnteredChars(ch, incorrectChars);
+    }
 }
 
 // Function 8: Based on secretWord's length, generate hidden characters in form of "---"
 string generateHiddenCharacters(string secretWord){
-    // Your code here
+    string hiddenCharacters(secretWord.length(), '-');
+    return hiddenCharacters;
 }
