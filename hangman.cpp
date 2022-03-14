@@ -7,11 +7,17 @@ using std::ifstream;
 using std::domain_error;
 using std::cin;
 
-// Function 1: Generate a random integer number between min and max.
+/***
+    Args:
+        min (int): left margin of a range
+        max (int): right margin of a range
+    Returns:
+        number (int) : random number in range [min; max]
+***/
 int generateRandomNumber(const int min, const int max)
 {
-    //srand((int)time(0)); // It is a bug if putting this line here.
-    // Your code here
+    // TODO: Return a random integer number between min and max
+    return 1;
 }
 
 vector<string> readWordListFromFile(const string& filePath)
@@ -35,16 +41,45 @@ vector<string> readWordListFromFile(const string& filePath)
     return wordList;
 }
 
-// Function 2: Check if a character is in a string or not.
+/***
+    Args:
+        ch (char): A character
+        word (string): a word
+    Returns:
+        result (bool) : the character ch is in the word or not.
+***/
 bool isCharInWord(const char ch, const string& word)
 {
-    // Your code here
+    // TODO: return true if ch is in word else return false
+    return true;
 }
 
-// Function 3: Return a lowercase word in a certain position of a list.
+/***
+    Args:
+        wordList (vector<string>): A list of words
+        index (int): an integer number
+    Returns:
+        answer (string) : the lowercase word is in the position index of wordList
+***/
 string chooseWordFromList(const vector<string>& wordList, int index) 
 {
-    // Your code here
+    // TODO: Return a lowercase word in the index position of the vector wordList.
+    string answer;
+
+    return answer;
+}
+
+/***
+    Args:
+        answerWord (string): a word that player needs to guess
+    Returns:
+        secretWord (string): answerWord in hidden form (form of ---)
+***/
+string generateHiddenCharacters(string answerWord){
+    // TODO: Based on answerWord's length, generate hidden characters in form of "---"
+    string secretWord;
+
+    return secretWord;
 }
 
 char getInputCharacter() {
@@ -53,40 +88,63 @@ char getInputCharacter() {
     return tolower(ch); 
 }
 
-// Function 4: Update the secret word if the character ch is in the answer word.
+/***
+    Args:
+        secretWord (string): secret word in hidden form
+        ch (char): a charater
+        word (string): the answer word
+    Returns:
+        void
+***/
 void updateSecretWord(string& secretWord, const char ch, const string& word)
 {
-    // Your code here
+    // TODO: Update the secret word if the character ch is in the answer word.
 }
 
-// Function 5 + 6 +7: processData
-// If ch in word:
-//     update secretWord
-//     update correctChars
-// Else:
-//     update incorrectGuess
-//     update incorrectChars
-
-// Function 5: this function is used to update correctChars and incorrectChars
+/***
+    Args:
+        ch (char): a character
+        chars (string): an array of characters
+    Returns:
+        void
+***/
 void updateEnteredChars(const char ch, string& chars){
-    // Your code here
+    // TODO: append the character ch is in end of the text chars
 }
 
-// Function 6: Update incorrectGuess
+/***
+    Args:
+        incorrectGuess (int): a number that store the number of player's wrong guess
+    Returns:
+        void
+***/
 void updateIncorrectGuess(int& incorrectGuess){
-    // Your code here
+    // TODO: increase the value of incorrectGuess by 1
 }
 
-// Function 7: processData
+/***
+    Args:
+        ch (char): a character that player enter to console
+        word (string): answer word that play needs to guess
+        secretWord (string): answer word in hidden form
+        correctChars (string): a string that stores correct inputs of player
+        incorrectGuess (int): a number that stores the number of player's wrong guess
+        incorrectChars (string): a string that stores incorrect inputs of player
+    Returns:
+        void
+***/
 void processData(const char ch, const string& word, 
                 string& secretWord, 
                 string& correctChars, 
                 int& incorrectGuess, string& incorrectChars)
 {
-    // Your code here
+    /*** TODO
+        If ch in word:
+            update secretWord: call updateSecretWord() function
+            update correctChars: call updateEnteredChars() function
+        else:
+            update incorrectGuess: call updateIncorrectGuess() function
+            update incorrectChars: call updateEnteredChars() function
+    ***/
 }
 
-// Function 8: Based on secretWord's length, generate hidden characters in form of "---"
-string generateHiddenCharacters(string secretWord){
-    // Your code here
-}
